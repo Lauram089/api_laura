@@ -1,0 +1,35 @@
+<h1>Lista de usuarios</h1>
+
+<%= link_to "CREAR", usuarios_new_path %>  
+
+<table>
+    <tr>
+    <thead>
+        <th>Alias</th>
+        <th>Nombre</th>
+        <th>Curso</th>
+        <th>Area</th>
+    </thead>
+    </tr>
+    <tr>
+    <% @usuarios.each do |user| %>
+        <td><%= user.alias %></td>
+        <td><%= user.nombre %></td>
+        <td><%= user.curso %></td>
+        <td><%= user.area %></td>
+
+        <td >
+            <%= link_to "EDITAR", edit_usuario_path(user) %>
+            <%= link_to "ELIMINAR", delete_usuario_path(user), method: :delete  %>
+            
+
+        </td>
+
+
+
+
+    </tr>
+     <% end %>
+    
+    </table>
+   
