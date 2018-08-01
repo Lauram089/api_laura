@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :views
+  get 'home/index'
+
   get  '/usuarios', to: 'usuarios#index' 
   get '/usuarios/new', to: 'usuarios#new' 
   post '/usuarios', to: 'usuarios#create', as: 'create_usuario'
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
   patch '/usuarios/:id', to: 'usuarios#update'
   put '/usuarios/:id', to: 'usuarios#update'
   delete'/usuarios/:id', to: 'usuarios#delete', as: 'delete_usuario'
+  root to: "home#index"
 
   resources :usuarios
   
